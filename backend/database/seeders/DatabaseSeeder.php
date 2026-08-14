@@ -306,5 +306,75 @@ class DatabaseSeeder extends Seeder
                 ['isPublished' => true]
             );
         }
+
+        // Add Birthdays
+        \App\Models\SpecialDate::updateOrCreate(
+            ['title' => "Vell Vell's Birthday"],
+            [
+                'date' => '2006-02-17 00:00:00',
+                'type' => 'Birthday',
+                'description' => 'Happy Birthday to my pretty girl! 💜',
+                'icon' => 'Cake',
+                'recurringYearly' => true,
+            ]
+        );
+
+        \App\Models\SpecialDate::updateOrCreate(
+            ['title' => "Putra's Birthday"],
+            [
+                'date' => '2005-06-16 00:00:00',
+                'type' => 'Birthday',
+                'description' => 'My special day.',
+                'icon' => 'Gift',
+                'recurringYearly' => true,
+            ]
+        );
+
+        // Add Adventures
+        $adventures = [
+            "Watch the sunset together",
+            "Take a photobooth picture",
+            "Cook something new",
+            "Go somewhere without planning",
+            "Recreate our first date",
+            "Take matching photos"
+        ];
+
+        foreach ($adventures as $index => $adv) {
+            \App\Models\Adventure::firstOrCreate(
+                ['title' => $adv],
+                ['isCompleted' => false, 'sortOrder' => $index]
+            );
+        }
+
+        // Add Dreams
+        $dreams = [
+            [
+                'title' => "Watch the sunset at the beach",
+                'description' => "Just you, me, and the sound of the waves.",
+                'status' => "Dreaming",
+            ],
+            [
+                'title' => "Go on a late night food run",
+                'description' => "",
+                'status' => "Planned",
+            ],
+            [
+                'title' => "Take a photobooth picture together",
+                'description' => "",
+                'status' => "Done 💜",
+            ],
+        ];
+
+        foreach ($dreams as $index => $dream) {
+            \App\Models\Dream::firstOrCreate(
+                ['title' => $dream['title']],
+                [
+                    'description' => $dream['description'],
+                    'status' => $dream['status'],
+                    'sortOrder' => $index,
+                ]
+            );
+        }
     }
 }
