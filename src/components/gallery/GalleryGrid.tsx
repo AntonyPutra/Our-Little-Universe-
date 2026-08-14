@@ -52,7 +52,7 @@ export function GalleryGrid({ memories }: { memories: Memory[] }) {
   };
 
   const renderGrid = (items: Memory[]) => (
-    <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
+    <div className="columns-1 sm:columns-2 md:columns-3 gap-6">
       <AnimatePresence>
         {items.map((memory, index) => (
           <motion.div
@@ -63,7 +63,7 @@ export function GalleryGrid({ memories }: { memories: Memory[] }) {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
             onClick={() => setSelectedMemory(memory)}
-            className="break-inside-avoid glass-card rounded-2xl overflow-hidden cursor-pointer group relative block"
+            className="break-inside-avoid glass-card rounded-2xl overflow-hidden cursor-pointer group relative block mb-6"
           >
             {/* Image Container */}
             <div className="w-full relative bg-purple-900/10">
