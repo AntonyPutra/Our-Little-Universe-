@@ -31,7 +31,7 @@ export function MediaUploader({
     });
 
     try {
-      const res = await fetch("/api/upload", {
+      const res = await fetch("/internal-api/upload", {
         method: "POST",
         body: formData
       });
