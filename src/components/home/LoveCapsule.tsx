@@ -98,9 +98,11 @@ export function LoveCapsule() {
             <span className="font-serif tracking-widest uppercase text-sm">A Letter Snippet</span>
           </div>
           <h3 className="font-serif text-2xl text-purple-100 mb-6">{data.title}</h3>
-          <div className="text-purple-200/80 italic px-4 whitespace-pre-wrap max-h-48 overflow-hidden relative">
-            {data.content}
-            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background-dark to-transparent" />
+          <div className="relative w-full">
+            <div className="text-purple-200/80 italic px-4 whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
+              {data.content}
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background-dark to-transparent pointer-events-none" />
           </div>
         </div>
       );
