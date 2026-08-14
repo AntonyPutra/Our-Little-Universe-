@@ -153,14 +153,16 @@ export function GalleryGrid({ memories }: { memories: Memory[] }) {
         )}
       </div>
 
-      {selectedMemory && (
-        <MemoryModal 
-          memory={selectedMemory} 
-          onClose={() => setSelectedMemory(null)} 
-          onNext={handleNext}
-          onPrev={handlePrev}
-        />
-      )}
+      <AnimatePresence>
+        {selectedMemory && (
+          <MemoryModal 
+            memory={selectedMemory} 
+            onClose={() => setSelectedMemory(null)} 
+            onNext={handleNext}
+            onPrev={handlePrev}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

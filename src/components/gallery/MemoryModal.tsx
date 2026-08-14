@@ -40,7 +40,7 @@ export function MemoryModal({ memory, onClose, onNext, onPrev }: MemoryModalProp
   }, [onClose, onPrev, onNext]);
 
   return (
-    <AnimatePresence>
+    <>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -154,6 +154,6 @@ export function MemoryModal({ memory, onClose, onNext, onPrev }: MemoryModalProp
           </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+    </>
   );
 }
