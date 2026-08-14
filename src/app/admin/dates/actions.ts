@@ -13,6 +13,8 @@ export async function createDate(formData: FormData) {
   const type = formData.get("type") as string;
   const description = formData.get("description") as string;
   const icon = formData.get("icon") as string || "Heart";
+  const imagePath = formData.get("imagePath") as string || null;
+  const location = formData.get("location") as string || null;
   const recurringYearly = formData.get("recurringYearly") === "on";
   const isPublished = formData.get("isPublished") !== "false";
   
@@ -23,6 +25,8 @@ export async function createDate(formData: FormData) {
       type: type || null,
       description: description || null,
       icon,
+      imagePath,
+      location,
       recurringYearly,
       isPublished,
     }
@@ -40,6 +44,8 @@ export async function updateDate(id: string, formData: FormData) {
   const type = formData.get("type") as string;
   const description = formData.get("description") as string;
   const icon = formData.get("icon") as string || "Heart";
+  const imagePath = formData.get("imagePath") as string || null;
+  const location = formData.get("location") as string || null;
   const recurringYearly = formData.get("recurringYearly") === "on";
   const isPublished = formData.get("isPublished") !== "false";
   
@@ -51,6 +57,8 @@ export async function updateDate(id: string, formData: FormData) {
       type: type || null,
       description: description || null,
       icon,
+      imagePath,
+      location,
       recurringYearly,
       isPublished,
     }

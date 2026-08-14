@@ -4,8 +4,14 @@ import { updateDate, deleteDate } from "../actions";
 import Link from "next/link";
 import { ArrowLeft, Trash2 } from "lucide-react";
 
+import { MediaUploader } from "@/components/admin/MediaUploader";
+import { useState } from "react";
+
 export function EditDateForm({ date }: { date: any }) {
   const updateDateWithId = updateDate.bind(null, date.id);
+  const [mediaUrls, setMediaUrls] = useState<any[]>(
+    date.imagePath ? [{ filePath: date.imagePath }] : []
+  );
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -64,8 +70,22 @@ export function EditDateForm({ date }: { date: any }) {
         </div>
 
         <div className="space-y-2">
+          <label className="text-sm font-medium text-zinc-300">Location (Optional)</label>
+          <input name="location" defaultValue={date.location || ""} type="text" className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-pink-500" />
+        </div>
+
+        <div className="space-y-2">
           <label className="text-sm font-medium text-zinc-300">Description (Optional)</label>
           <textarea name="description" defaultValue={date.description || ""} rows={3} className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-pink-500" />
+        </div>
+
+        <div className="space-y-4">
+          <label className="text-sm font-medium text-zinc-300">Photo (Optional)</label>
+          <MediaUploader 
+            onChange={setMediaUrls} 
+            initialMedia={date.imagePath ? [{ id: '1', filePath: date.imagePath, mediaType: 'image' }] : []} 
+          />
+          <input type="hidden" name="imagePath" value={mediaUrls.length > 0 ? mediaUrls[0].filePath : (date.imagePath || "")} />
         </div>
 
         <div className="flex items-center gap-6 pt-4 border-t border-zinc-800">

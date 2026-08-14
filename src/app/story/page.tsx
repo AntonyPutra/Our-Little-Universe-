@@ -22,7 +22,8 @@ export default async function StoryPage() {
       : '',
     description: m.description || '',
     icon: m.icon || 'Heart',
-    image: undefined // We can add images to SpecialDate later if needed
+    location: m.location || undefined,
+    image: m.imagePath || undefined
   }));
 
   return <ClientStory events={events} />;

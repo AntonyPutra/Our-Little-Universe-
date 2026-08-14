@@ -39,9 +39,7 @@ yarn-error.log*
 next-env.d.ts
 
 # Self-hosted runtime data
-data/
 /data
-/uploads
 /public/uploads
 
 # Prisma

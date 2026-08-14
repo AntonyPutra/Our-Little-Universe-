@@ -3,8 +3,12 @@
 import { createDate } from "../actions";
 import Link from "next/link";
 import { ArrowLeft, CalendarHeart } from "lucide-react";
+import { MediaUploader } from "@/components/admin/MediaUploader";
+import { useState } from "react";
 
 export default function NewDatePage() {
+  const [mediaUrls, setMediaUrls] = useState<any[]>([]);
+
   return (
     <div className="max-w-3xl mx-auto">
       <div className="flex items-center gap-4 mb-8">
@@ -53,8 +57,19 @@ export default function NewDatePage() {
         </div>
 
         <div className="space-y-2">
+          <label className="text-sm font-medium text-zinc-300">Location (Optional)</label>
+          <input name="location" type="text" className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-pink-500" placeholder="e.g. Paris" />
+        </div>
+
+        <div className="space-y-2">
           <label className="text-sm font-medium text-zinc-300">Description (Optional)</label>
           <textarea name="description" rows={3} className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-pink-500" placeholder="What happened on this day?" />
+        </div>
+
+        <div className="space-y-4">
+          <label className="text-sm font-medium text-zinc-300">Photo (Optional)</label>
+          <MediaUploader onChange={setMediaUrls} />
+          <input type="hidden" name="imagePath" value={mediaUrls[0]?.filePath || ""} />
         </div>
 
         <div className="flex items-center gap-6 pt-4 border-t border-zinc-800">

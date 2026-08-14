@@ -50,6 +50,8 @@ model SpecialDate {
   type            String?
   description     String?
   icon            String   @default("Heart")
+  imagePath       String?
+  location        String?
   recurringYearly Boolean  @default(false)
   isPublished     Boolean  @default(true)
   createdAt       DateTime @default(now()) @map("created_at")
