@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    ports:
+      - "5433:5432"
+    volumes:
+      # Use a named volume for local Windows dev to avoid permissions issues
+      - pgdata:/var/lib/postgresql/data
+      # We must clear the bind mount inherited from production docker-compose.yml
+      # Compose merge semantics: list elements are appended unless we override the whole list or specify targets.
+      # Wait, in compose V3+, mapping to the same target inside the container overrides the volume!
+      # We specify the same target `/var/lib/postgresql/data` so it overrides the production bind mount.
+
+volumes:
+  pgdata:

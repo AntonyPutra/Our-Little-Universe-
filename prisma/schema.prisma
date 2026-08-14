@@ -1,0 +1,146 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// No Admin model — authentication is a single shared passcode (stored as
+// COUPLE_PASSCODE_HASH in env, validated server-side). No user table needed.
+
+model Memory {
+  id          String   @id @default(uuid())
+  title       String?
+  date        DateTime?
+  caption     String?
+  story       String?
+  location    String?
+  category    String   @default("Random")
+  isFavorite  Boolean  @default(false)
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  media       MemoryMedia[]
+}
+
+model MemoryMedia {
+  id        String   @id @default(uuid())
+  memoryId  String
+  memory    Memory   @relation(fields: [memoryId], references: [id], onDelete: Cascade)
+  mediaType String   // "image" or "video"
+  filePath  String
+  mimeType  String?
+  caption   String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model SpecialDate {
+  id              String   @id @default(uuid())
+  title           String
+  date            DateTime
+  type            String?
+  description     String?
+  icon            String   @default("Heart")
+  recurringYearly Boolean  @default(false)
+  isPublished     Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Song {
+  id          String   @id @default(uuid())
+  title       String
+  artist      String
+  spotifyUrl  String?
+  youtubeUrl  String?
+  note        String?
+  coverPath   String?
+  isFavorite  Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  isPublished Boolean  @default(true)
+  // Optional — who added this song? Putra / Vell Vell / Us
+  addedBy     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Letter {
+  id          String   @id @default(uuid())
+  title       String
+  content     String
+  date        DateTime?
+  letterType  String?  // "regular", "open-when"
+  isFeatured  Boolean  @default(false)
+  isPublished Boolean  @default(true)
+  // Optional authorship — Putra / Vell Vell / Us
+  fromAuthor  String?
+  toAuthor    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model JarNote {
+  id          String   @id @default(uuid())
+  content     String
+  category    String?
+  isPublished Boolean  @default(true)
+  // Optional authorship
+  fromAuthor  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model LoveReason {
+  id          String   @id @default(uuid())
+  content     String
+  isPublished Boolean  @default(true)
+  // Optional authorship
+  fromAuthor  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Dream {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  category    String?
+  status      String   @default("Dreaming") // "Dreaming", "Planned", "Done"
+  sortOrder   Int      @default(0)
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Adventure {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  isCompleted Boolean  @default(false)
+  completedAt DateTime?
+  sortOrder   Int      @default(0)
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Settings {
+  id        String   @id @default("global") // Single row pattern
+  coupleData String   // JSON string
+  updatedAt DateTime @updatedAt
+}
+
+model DailyNote {
+  id          String   @id @default(uuid())
+  content     String
+  isPublished Boolean  @default(true)
+  // Optional authorship
+  fromAuthor  String?
+  toAuthor    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
