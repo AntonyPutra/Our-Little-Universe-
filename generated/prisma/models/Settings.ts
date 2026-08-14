@@ -27,18 +27,21 @@ export type AggregateSettings = {
 export type SettingsMinAggregateOutputType = {
   id: string | null
   coupleData: string | null
+  createdAt: Date | null
   updatedAt: Date | null
 }
 
 export type SettingsMaxAggregateOutputType = {
   id: string | null
   coupleData: string | null
+  createdAt: Date | null
   updatedAt: Date | null
 }
 
 export type SettingsCountAggregateOutputType = {
   id: number
   coupleData: number
+  createdAt: number
   updatedAt: number
   _all: number
 }
@@ -47,18 +50,21 @@ export type SettingsCountAggregateOutputType = {
 export type SettingsMinAggregateInputType = {
   id?: true
   coupleData?: true
+  createdAt?: true
   updatedAt?: true
 }
 
 export type SettingsMaxAggregateInputType = {
   id?: true
   coupleData?: true
+  createdAt?: true
   updatedAt?: true
 }
 
 export type SettingsCountAggregateInputType = {
   id?: true
   coupleData?: true
+  createdAt?: true
   updatedAt?: true
   _all?: true
 }
@@ -138,6 +144,7 @@ export type SettingsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 export type SettingsGroupByOutputType = {
   id: string
   coupleData: string
+  createdAt: Date
   updatedAt: Date
   _count: SettingsCountAggregateOutputType | null
   _min: SettingsMinAggregateOutputType | null
@@ -165,12 +172,14 @@ export type SettingsWhereInput = {
   NOT?: Prisma.SettingsWhereInput | Prisma.SettingsWhereInput[]
   id?: Prisma.StringFilter<"Settings"> | string
   coupleData?: Prisma.StringFilter<"Settings"> | string
+  createdAt?: Prisma.DateTimeFilter<"Settings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Settings"> | Date | string
 }
 
 export type SettingsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   coupleData?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
@@ -180,12 +189,14 @@ export type SettingsWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.SettingsWhereInput[]
   NOT?: Prisma.SettingsWhereInput | Prisma.SettingsWhereInput[]
   coupleData?: Prisma.StringFilter<"Settings"> | string
+  createdAt?: Prisma.DateTimeFilter<"Settings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Settings"> | Date | string
 }, "id">
 
 export type SettingsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   coupleData?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.SettingsCountOrderByAggregateInput
   _max?: Prisma.SettingsMaxOrderByAggregateInput
@@ -198,66 +209,77 @@ export type SettingsScalarWhereWithAggregatesInput = {
   NOT?: Prisma.SettingsScalarWhereWithAggregatesInput | Prisma.SettingsScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Settings"> | string
   coupleData?: Prisma.StringWithAggregatesFilter<"Settings"> | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Settings"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Settings"> | Date | string
 }
 
 export type SettingsCreateInput = {
   id?: string
   coupleData: string
+  createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type SettingsUncheckedCreateInput = {
   id?: string
   coupleData: string
+  createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type SettingsUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   coupleData?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SettingsUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   coupleData?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SettingsCreateManyInput = {
   id?: string
   coupleData: string
+  createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type SettingsUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   coupleData?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SettingsUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   coupleData?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SettingsCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   coupleData?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type SettingsMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   coupleData?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type SettingsMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   coupleData?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
@@ -266,28 +288,32 @@ export type SettingsMinOrderByAggregateInput = {
 export type SettingsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   coupleData?: boolean
+  createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["settings"]>
 
 export type SettingsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   coupleData?: boolean
+  createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["settings"]>
 
 export type SettingsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   coupleData?: boolean
+  createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["settings"]>
 
 export type SettingsSelectScalar = {
   id?: boolean
   coupleData?: boolean
+  createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SettingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "coupleData" | "updatedAt", ExtArgs["result"]["settings"]>
+export type SettingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "coupleData" | "createdAt" | "updatedAt", ExtArgs["result"]["settings"]>
 
 export type $SettingsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Settings"
@@ -295,6 +321,7 @@ export type $SettingsPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     coupleData: string
+    createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["settings"]>
   composites: {}
@@ -721,6 +748,7 @@ export interface Prisma__SettingsClient<T, Null = never, ExtArgs extends runtime
 export interface SettingsFieldRefs {
   readonly id: Prisma.FieldRef<"Settings", 'String'>
   readonly coupleData: Prisma.FieldRef<"Settings", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Settings", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Settings", 'DateTime'>
 }
     

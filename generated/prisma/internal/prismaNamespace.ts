@@ -1305,7 +1305,8 @@ export const MemoryMediaScalarFieldEnum = {
   mimeType: 'mimeType',
   caption: 'caption',
   sortOrder: 'sortOrder',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type MemoryMediaScalarFieldEnum = (typeof MemoryMediaScalarFieldEnum)[keyof typeof MemoryMediaScalarFieldEnum]
@@ -1421,6 +1422,7 @@ export type AdventureScalarFieldEnum = (typeof AdventureScalarFieldEnum)[keyof t
 export const SettingsScalarFieldEnum = {
   id: 'id',
   coupleData: 'coupleData',
+  createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 

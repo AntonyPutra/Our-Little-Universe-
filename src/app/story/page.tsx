@@ -1,25 +1,28 @@
 import prisma from "@/lib/prisma";
 import { ClientStory } from "./ClientStory";
 
-
-
 export default async function StoryPage() {
-  const dbMemories = await prisma.memory.findMany({
+  const specialDates = await prisma.specialDate.findMany({
     where: { 
-      isPublished: true,
-      date: { not: null }
+      isPublished: true
     },
-    include: { media: { orderBy: { sortOrder: 'asc' }, take: 1 } },
     orderBy: { date: 'asc' }
   });
 
-  const events = dbMemories.map(m => ({
+  const events = specialDates.map(m => ({
     id: m.id,
-    title: m.title || 'Memory',
-    date: m.date ? m.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '',
-    description: m.story || m.caption || '',
-    icon: 'Heart', // Default icon for timeline from memory
-    image: m.media.length > 0 && m.media[0].mediaType === 'image' ? m.media[0].filePath : undefined
+    title: m.title || 'Event',
+    date: m.date 
+      ? new Intl.DateTimeFormat('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          timeZone: 'Asia/Jakarta'
+        }).format(m.date)
+      : '',
+    description: m.description || '',
+    icon: m.icon || 'Heart',
+    image: undefined // We can add images to SpecialDate later if needed
   }));
 
   return <ClientStory events={events} />;

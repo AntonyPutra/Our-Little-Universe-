@@ -51,6 +51,7 @@ if (fs.promises) {
 }
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   webpack: (config) => {
     config.resolve.symlinks = false;
     return config;

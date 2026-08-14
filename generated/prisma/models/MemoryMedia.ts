@@ -43,6 +43,7 @@ export type MemoryMediaMinAggregateOutputType = {
   caption: string | null
   sortOrder: number | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type MemoryMediaMaxAggregateOutputType = {
@@ -54,6 +55,7 @@ export type MemoryMediaMaxAggregateOutputType = {
   caption: string | null
   sortOrder: number | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type MemoryMediaCountAggregateOutputType = {
@@ -65,6 +67,7 @@ export type MemoryMediaCountAggregateOutputType = {
   caption: number
   sortOrder: number
   createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -86,6 +89,7 @@ export type MemoryMediaMinAggregateInputType = {
   caption?: true
   sortOrder?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type MemoryMediaMaxAggregateInputType = {
@@ -97,6 +101,7 @@ export type MemoryMediaMaxAggregateInputType = {
   caption?: true
   sortOrder?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type MemoryMediaCountAggregateInputType = {
@@ -108,6 +113,7 @@ export type MemoryMediaCountAggregateInputType = {
   caption?: true
   sortOrder?: true
   createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -206,6 +212,7 @@ export type MemoryMediaGroupByOutputType = {
   caption: string | null
   sortOrder: number
   createdAt: Date
+  updatedAt: Date
   _count: MemoryMediaCountAggregateOutputType | null
   _avg: MemoryMediaAvgAggregateOutputType | null
   _sum: MemoryMediaSumAggregateOutputType | null
@@ -240,6 +247,7 @@ export type MemoryMediaWhereInput = {
   caption?: Prisma.StringNullableFilter<"MemoryMedia"> | string | null
   sortOrder?: Prisma.IntFilter<"MemoryMedia"> | number
   createdAt?: Prisma.DateTimeFilter<"MemoryMedia"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"MemoryMedia"> | Date | string
   memory?: Prisma.XOR<Prisma.MemoryScalarRelationFilter, Prisma.MemoryWhereInput>
 }
 
@@ -252,6 +260,7 @@ export type MemoryMediaOrderByWithRelationInput = {
   caption?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   memory?: Prisma.MemoryOrderByWithRelationInput
 }
 
@@ -267,6 +276,7 @@ export type MemoryMediaWhereUniqueInput = Prisma.AtLeast<{
   caption?: Prisma.StringNullableFilter<"MemoryMedia"> | string | null
   sortOrder?: Prisma.IntFilter<"MemoryMedia"> | number
   createdAt?: Prisma.DateTimeFilter<"MemoryMedia"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"MemoryMedia"> | Date | string
   memory?: Prisma.XOR<Prisma.MemoryScalarRelationFilter, Prisma.MemoryWhereInput>
 }, "id">
 
@@ -279,6 +289,7 @@ export type MemoryMediaOrderByWithAggregationInput = {
   caption?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.MemoryMediaCountOrderByAggregateInput
   _avg?: Prisma.MemoryMediaAvgOrderByAggregateInput
   _max?: Prisma.MemoryMediaMaxOrderByAggregateInput
@@ -298,6 +309,7 @@ export type MemoryMediaScalarWhereWithAggregatesInput = {
   caption?: Prisma.StringNullableWithAggregatesFilter<"MemoryMedia"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"MemoryMedia"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"MemoryMedia"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"MemoryMedia"> | Date | string
 }
 
 export type MemoryMediaCreateInput = {
@@ -308,6 +320,7 @@ export type MemoryMediaCreateInput = {
   caption?: string | null
   sortOrder?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
   memory: Prisma.MemoryCreateNestedOneWithoutMediaInput
 }
 
@@ -320,6 +333,7 @@ export type MemoryMediaUncheckedCreateInput = {
   caption?: string | null
   sortOrder?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MemoryMediaUpdateInput = {
@@ -330,6 +344,7 @@ export type MemoryMediaUpdateInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memory?: Prisma.MemoryUpdateOneRequiredWithoutMediaNestedInput
 }
 
@@ -342,6 +357,7 @@ export type MemoryMediaUncheckedUpdateInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MemoryMediaCreateManyInput = {
@@ -353,6 +369,7 @@ export type MemoryMediaCreateManyInput = {
   caption?: string | null
   sortOrder?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MemoryMediaUpdateManyMutationInput = {
@@ -363,6 +380,7 @@ export type MemoryMediaUpdateManyMutationInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MemoryMediaUncheckedUpdateManyInput = {
@@ -374,6 +392,7 @@ export type MemoryMediaUncheckedUpdateManyInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MemoryMediaListRelationFilter = {
@@ -395,6 +414,7 @@ export type MemoryMediaCountOrderByAggregateInput = {
   caption?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MemoryMediaAvgOrderByAggregateInput = {
@@ -410,6 +430,7 @@ export type MemoryMediaMaxOrderByAggregateInput = {
   caption?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MemoryMediaMinOrderByAggregateInput = {
@@ -421,6 +442,7 @@ export type MemoryMediaMinOrderByAggregateInput = {
   caption?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MemoryMediaSumOrderByAggregateInput = {
@@ -485,6 +507,7 @@ export type MemoryMediaCreateWithoutMemoryInput = {
   caption?: string | null
   sortOrder?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MemoryMediaUncheckedCreateWithoutMemoryInput = {
@@ -495,6 +518,7 @@ export type MemoryMediaUncheckedCreateWithoutMemoryInput = {
   caption?: string | null
   sortOrder?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MemoryMediaCreateOrConnectWithoutMemoryInput = {
@@ -535,6 +559,7 @@ export type MemoryMediaScalarWhereInput = {
   caption?: Prisma.StringNullableFilter<"MemoryMedia"> | string | null
   sortOrder?: Prisma.IntFilter<"MemoryMedia"> | number
   createdAt?: Prisma.DateTimeFilter<"MemoryMedia"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"MemoryMedia"> | Date | string
 }
 
 export type MemoryMediaCreateManyMemoryInput = {
@@ -545,6 +570,7 @@ export type MemoryMediaCreateManyMemoryInput = {
   caption?: string | null
   sortOrder?: number
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MemoryMediaUpdateWithoutMemoryInput = {
@@ -555,6 +581,7 @@ export type MemoryMediaUpdateWithoutMemoryInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MemoryMediaUncheckedUpdateWithoutMemoryInput = {
@@ -565,6 +592,7 @@ export type MemoryMediaUncheckedUpdateWithoutMemoryInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MemoryMediaUncheckedUpdateManyWithoutMemoryInput = {
@@ -575,6 +603,7 @@ export type MemoryMediaUncheckedUpdateManyWithoutMemoryInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -588,6 +617,7 @@ export type MemoryMediaSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   caption?: boolean
   sortOrder?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   memory?: boolean | Prisma.MemoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["memoryMedia"]>
 
@@ -600,6 +630,7 @@ export type MemoryMediaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   caption?: boolean
   sortOrder?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   memory?: boolean | Prisma.MemoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["memoryMedia"]>
 
@@ -612,6 +643,7 @@ export type MemoryMediaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   caption?: boolean
   sortOrder?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   memory?: boolean | Prisma.MemoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["memoryMedia"]>
 
@@ -624,9 +656,10 @@ export type MemoryMediaSelectScalar = {
   caption?: boolean
   sortOrder?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type MemoryMediaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "memoryId" | "mediaType" | "filePath" | "mimeType" | "caption" | "sortOrder" | "createdAt", ExtArgs["result"]["memoryMedia"]>
+export type MemoryMediaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "memoryId" | "mediaType" | "filePath" | "mimeType" | "caption" | "sortOrder" | "createdAt" | "updatedAt", ExtArgs["result"]["memoryMedia"]>
 export type MemoryMediaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   memory?: boolean | Prisma.MemoryDefaultArgs<ExtArgs>
 }
@@ -651,6 +684,7 @@ export type $MemoryMediaPayload<ExtArgs extends runtime.Types.Extensions.Interna
     caption: string | null
     sortOrder: number
     createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["memoryMedia"]>
   composites: {}
 }
@@ -1083,6 +1117,7 @@ export interface MemoryMediaFieldRefs {
   readonly caption: Prisma.FieldRef<"MemoryMedia", 'String'>
   readonly sortOrder: Prisma.FieldRef<"MemoryMedia", 'Int'>
   readonly createdAt: Prisma.FieldRef<"MemoryMedia", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"MemoryMedia", 'DateTime'>
 }
     
 

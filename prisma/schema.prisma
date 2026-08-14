@@ -20,10 +20,12 @@ model Memory {
   category    String   @default("Random")
   isFavorite  Boolean  @default(false)
   isPublished Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
 
   media       MemoryMedia[]
+
+  @@map("memories")
 }
 
 model MemoryMedia {
@@ -35,7 +37,10 @@ model MemoryMedia {
   mimeType  String?
   caption   String?
   sortOrder Int      @default(0)
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("memory_media")
 }
 
 model SpecialDate {
@@ -47,8 +52,10 @@ model SpecialDate {
   icon            String   @default("Heart")
   recurringYearly Boolean  @default(false)
   isPublished     Boolean  @default(true)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("special_dates")
 }
 
 model Song {
@@ -64,8 +71,10 @@ model Song {
   isPublished Boolean  @default(true)
   // Optional — who added this song? Putra / Vell Vell / Us
   addedBy     String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("songs")
 }
 
 model Letter {
@@ -79,8 +88,10 @@ model Letter {
   // Optional authorship — Putra / Vell Vell / Us
   fromAuthor  String?
   toAuthor    String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("letters")
 }
 
 model JarNote {
@@ -90,8 +101,10 @@ model JarNote {
   isPublished Boolean  @default(true)
   // Optional authorship
   fromAuthor  String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("jar_notes")
 }
 
 model LoveReason {
@@ -100,8 +113,10 @@ model LoveReason {
   isPublished Boolean  @default(true)
   // Optional authorship
   fromAuthor  String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("love_reasons")
 }
 
 model Dream {
@@ -112,8 +127,10 @@ model Dream {
   status      String   @default("Dreaming") // "Dreaming", "Planned", "Done"
   sortOrder   Int      @default(0)
   isPublished Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("dreams")
 }
 
 model Adventure {
@@ -124,14 +141,19 @@ model Adventure {
   completedAt DateTime?
   sortOrder   Int      @default(0)
   isPublished Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("adventures")
 }
 
 model Settings {
   id        String   @id @default("global") // Single row pattern
   coupleData String   // JSON string
-  updatedAt DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("couple_settings")
 }
 
 model DailyNote {
@@ -141,6 +163,8 @@ model DailyNote {
   // Optional authorship
   fromAuthor  String?
   toAuthor    String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("daily_notes")
 }
