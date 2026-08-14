@@ -19,7 +19,8 @@ services:
       dockerfile: Dockerfile
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_APP_URL=http://localhost:8088
+      - NEXT_PUBLIC_APP_URL=https://ourstory.whaleestudio.my.id
+      - NEXT_PUBLIC_API_URL=https://ourstory.whaleestudio.my.id/api
       - DATABASE_URL=postgresql://user:password@db:5432/our_universe?schema=public
       - COUPLE_PASSCODE_HASH=${COUPLE_PASSCODE_HASH}
     depends_on:
@@ -36,7 +37,7 @@ services:
       - APP_ENV=production
       - APP_KEY=${APP_KEY}
       - APP_DEBUG=false
-      - APP_URL=http://localhost:8088
+      - APP_URL=https://ourstory.whaleestudio.my.id
       - DB_CONNECTION=pgsql
       - DB_HOST=db
       - DB_PORT=5432
