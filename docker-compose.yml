@@ -39,6 +39,7 @@ services:
       - APP_DEBUG=false
       - APP_URL=https://ourstory.whaleestudio.my.id
       - SANCTUM_STATEFUL_DOMAINS=ourstory.whaleestudio.my.id
+      - SESSION_DOMAIN=ourstory.whaleestudio.my.id
       - DB_CONNECTION=pgsql
       - DB_HOST=db
       - DB_PORT=5432
