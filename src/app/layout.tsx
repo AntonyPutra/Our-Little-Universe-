@@ -9,6 +9,8 @@ import { Footer } from "@/components/layout/Footer";
 import { MusicPlayerProvider } from "@/components/music/MusicPlayerContext";
 import { MiniPlayer } from "@/components/music/MiniPlayer";
 
+export const dynamic = 'force-dynamic';
+
 const inter = Inter({ 
   subsets: ["latin"],
   variable: "--font-inter", 
