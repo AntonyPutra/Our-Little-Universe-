@@ -45,13 +45,29 @@ export async function fetchApi<T = any>(endpoint: string, options: RequestInit =
   if (typeof window === 'undefined') {
     // We are on the server side in Next.js. We need to manually forward the cookies to Laravel.
     try {
-      const { cookies } = await import('next/headers');
+      const { cookies, headers } = await import('next/headers');
       const cookieStore = await cookies();
       const cookieString = cookieStore.getAll().map(c => `${c.name}=${c.value}`).join('; ');
+      
+      const headersList = await headers();
+      const host = headersList.get('host') || '';
+      // Force a referer so Laravel Sanctum always treats this as a stateful frontend request
+      const referer = host ? `https://${host}/` : (process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000/');
+
       if (cookieString) {
         defaultOptions.headers = {
           ...defaultOptions.headers,
           'Cookie': cookieString,
+          'Host': host,
+          'Referer': referer,
+          'Origin': referer.replace(/\/$/, ''),
+        };
+      } else if (host) {
+        defaultOptions.headers = {
+          ...defaultOptions.headers,
+          'Host': host,
+          'Referer': referer,
+          'Origin': referer.replace(/\/$/, ''),
         };
       }
     } catch (e) {
