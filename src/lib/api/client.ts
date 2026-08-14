@@ -1,4 +1,5 @@
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+const isServer = typeof window === 'undefined';
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || (isServer ? 'http://backend:8000/api' : '/api');
 const BACKEND_URL = API_URL.replace('/api', '');
 
 export interface ApiResponse<T = any> {
