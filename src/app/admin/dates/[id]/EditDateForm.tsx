@@ -10,7 +10,7 @@ import { useState } from "react";
 export function EditDateForm({ date }: { date: any }) {
   const updateDateWithId = updateDate.bind(null, date.id);
   const [mediaUrls, setMediaUrls] = useState<any[]>(
-    date.imagePath ? [{ filePath: date.imagePath }] : []
+    date.imagePath ? [{ originalName: 'image', url: date.imagePath, mimeType: 'image/jpeg' }] : []
   );
 
   return (
@@ -83,9 +83,9 @@ export function EditDateForm({ date }: { date: any }) {
           <label className="text-sm font-medium text-zinc-300">Photo (Optional)</label>
           <MediaUploader 
             onChange={setMediaUrls} 
-            initialMedia={date.imagePath ? [{ id: '1', filePath: date.imagePath, mediaType: 'image' }] : []} 
+            initialMedia={date.imagePath ? [{ originalName: 'image', url: date.imagePath, mimeType: 'image/jpeg' }] : []} 
           />
-          <input type="hidden" name="imagePath" value={mediaUrls.length > 0 ? mediaUrls[0].filePath : (date.imagePath || "")} />
+          <input type="hidden" name="imagePath" value={mediaUrls.length > 0 ? mediaUrls[0].url : (date.imagePath || "")} />
         </div>
 
         <div className="flex items-center gap-6 pt-4 border-t border-zinc-800">

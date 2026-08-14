@@ -69,7 +69,7 @@ export default function NewDatePage() {
         <div className="space-y-4">
           <label className="text-sm font-medium text-zinc-300">Photo (Optional)</label>
           <MediaUploader onChange={setMediaUrls} />
-          <input type="hidden" name="imagePath" value={mediaUrls[0]?.filePath || ""} />
+          <input type="hidden" name="imagePath" value={mediaUrls[0]?.url || ""} />
         </div>
 
         <div className="flex items-center gap-6 pt-4 border-t border-zinc-800">
