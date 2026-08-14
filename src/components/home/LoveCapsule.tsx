@@ -14,7 +14,7 @@ export function LoveCapsule() {
     setIsLoading(true);
     setIsOpen(true);
     try {
-      const res = await fetch("/api/capsule");
+      const res = await fetch("/internal-api/capsule");
       if (res.ok) {
         const data = await res.json();
         setCapsuleItem(data);
