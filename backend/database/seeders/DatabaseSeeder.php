@@ -18,8 +18,9 @@ class DatabaseSeeder extends Seeder
         \App\Models\CoupleSetting::updateOrCreate(
             ['id' => 'global'],
             ['coupleData' => json_encode([
-                'names' => 'Putra & Vell Vell',
-                'theme' => 'dark',
+                'boyfriend' => 'Putra',
+                'girlfriend' => 'Vell Vell',
+                'tagline' => 'Every little moment brought us here',
                 'firstDate' => '2026-06-28T00:00:00.000Z',
                 'relationshipStart' => '2026-07-06T00:00:00.000Z'
             ])]
